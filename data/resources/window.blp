@@ -1,0 +1,45 @@
+using Gtk 4.0;
+using Adw 1;
+
+template ValaGtkTemplateWindow : Adw.ApplicationWindow {
+  title: "Vala & GTK Template";
+  default-height: 300;
+  Box {
+    orientation: vertical;
+
+    Adw.HeaderBar {}
+
+    Box {
+      orientation: vertical;
+      vexpand: true;
+      hexpand: true;
+      margin-top: 6;
+      margin-end: 6;
+      margin-start: 6;
+      margin-bottom: 6;
+      Box {
+        orientation: horizontal;
+        spacing: 6;
+        hexpand: true;
+         Box {
+           orientation: vertical;
+           spacing: 6;
+           Label {
+             label: "year:";
+             xalign: 0;
+           }
+           Entry year {
+              hexpand: true;
+           }
+         }
+         Button calculate {
+           label: "CALCULATE";
+         }
+      }
+      Label result {
+         vexpand: true;
+         valign: center;
+      }
+    }
+  }
+}

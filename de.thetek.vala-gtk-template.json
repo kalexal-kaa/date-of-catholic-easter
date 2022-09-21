@@ -1,0 +1,49 @@
+{
+    "app-id" : "de.thetek.vala-gtk-template",
+    "runtime" : "org.gnome.Platform",
+    "runtime-version" : "42",
+    "sdk" : "org.gnome.Sdk",
+    "command" : "de.thetek.vala-gtk-template",
+    "finish-args" : [
+        "--device=dri",
+        "--share=ipc",
+        "--socket=fallback-x11",
+        "--socket=wayland"
+    ],
+    "cleanup" : [
+        "/include",
+        "/lib/pkgconfig",
+        "/man",
+        "/share/doc",
+        "/share/gtk-doc",
+        "/share/man",
+        "/share/pkgconfig",
+        "/share/vala",
+        "*.la",
+        "*.a"
+    ],
+    "modules" : [
+          {
+            "name": "blueprint-compiler",
+            "buildsystem": "meson",
+            "sources": [
+               {
+                  "type": "git",
+                  "url": "https://gitlab.gnome.org/jwestman/blueprint-compiler",
+                  "branch": "main"
+               }
+             ]
+            },
+          {
+            "name" : "vala-gtk-template",
+            "builddir" : true,
+            "buildsystem" : "meson",
+            "sources" : [
+                {
+                    "type" : "dir",
+                    "path" : "."
+                }
+            ]
+        }
+    ]
+}
